@@ -2,7 +2,7 @@
 
 shopt -s extglob  # enable extglob
 
-LatestVersion=$(curl -Lsk 'https://github.com/Staubgeborener/klipper-backup/raw/main/version')
+LatestVersion=$(curl -Lsk 'https://github.com/CasperVerswijvelt/klipper-backup/raw/main/version')
 if [[ ! -e "version" ]]; then
     version="New version released: v"${LatestVersion}
 else
@@ -25,7 +25,7 @@ Klipper-Backup-Logo() {
 
 installation() {
     cd ~
-    wget https://github.com/Staubgeborener/klipper-backup/releases/download/$LatestVersion/klipper-backup-main.zip
+    wget https://github.com/CasperVerswijvelt/klipper-backup/releases/download/$LatestVersion/klipper-backup-main.zip
     unzip -o klipper-backup-main.zip
     if [ -d ~/klipper-backup ]; then
         cp ./klipper-backup-main/!(.env) ./klipper-backup
@@ -35,7 +35,7 @@ installation() {
     fi
     cd ./klipper-backup && chmod +x *.sh
     rm -rf ../klipper-backup-main ../klipper-backup-main.zip ./.github
-    echo -e "# klipper-backup 💾 \nKlipper backup script for manual or automated GitHub backups \n\nThis backup is provided by [klipper-backup](https://github.com/Staubgeborener/klipper-backup)." > README.md
+    echo -e "# klipper-backup 💾 \nKlipper backup script for manual or automated GitHub backups \n\nThis backup is provided by [klipper-backup](https://github.com/CasperVerswijvelt/klipper-backup)." > README.md
 }
 
 updates() {
@@ -52,7 +52,7 @@ Klipper-Backup-Logo
 if [[ ! -e "version" ]]; then
     echo -e "\n${color}Start installation...${end}\n"
     installation
-    echo -e "\n${color}Finished! Now set up the repository and edit the .env file. You can find more details in the wiki on Github: https://github.com/Staubgeborener/klipper-backup/wiki/Installation%3A-Initialize-GitHub-repository"
+    echo -e "\n${color}Finished! Now set up the repository and edit the .env file. You can find more details in the wiki on Github: https://github.com/CasperVerswijvelt/klipper-backup/wiki/Installation%3A-Initialize-GitHub-repository"
 else
     echo "Check for updates..."
     updates

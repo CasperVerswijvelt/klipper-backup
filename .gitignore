@@ -1,2 +1,2 @@
-.env
-secrets.conf
+secret.env
+backup_repo
