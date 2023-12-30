@@ -29,7 +29,8 @@ fi
 while read -r path; do
   echo "$path"
   file=$(basename "$path")
-  cp -r "$path" "$parent_path/$backup_folder"
+  mkdir -p "$parent_path/$backup_folder/config"
+  cp -r "$path" "$parent_path/$backup_folder/config"
 done < <(grep -v '^#' "$parent_path"/"$backup_folder"/.env | grep 'path_' | sed 's/^.*=//')
 
 
