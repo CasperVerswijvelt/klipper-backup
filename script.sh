@@ -4,9 +4,9 @@
 parent_path=$(cd "$(dirname "${BASH_SOURCE[0]}")"; pwd -P)
 
 # Initialize variables from .env file
-github_token=$(grep 'github_token=' "$parent_path"/secret.env | sed 's/^.*=//')
-github_username=$(grep 'github_username=' "$parent_path"/secret.env | sed 's/^.*=//')
-github_repository=$(grep 'github_repository=' "$parent_path"/secret.env | sed 's/^.*=//')
+github_token=$(grep 'github_token=' "$parent_path"/git.env | sed 's/^.*=//')
+github_username=$(grep 'github_username=' "$parent_path"/git.env | sed 's/^.*=//')
+github_repository=$(grep 'github_repository=' "$parent_path"/git.env | sed 's/^.*=//')
 
 echo "$github_token"
 echo "$github_username"
@@ -50,4 +50,4 @@ fi
 cd "$backup_folder"
 git add .
 git commit -m "$commit_message"
-git push https://"$github_token"@github.com/"$github_username"/"$github_repository".git  main
+git push https://"$github_token"@github.com/"$github_username"/"$github_repository".git main
